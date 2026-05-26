@@ -8,7 +8,7 @@ export function exportToPDF(comparison: ComparisonResult) {
 
   // Title
   doc.setFontSize(22);
-  doc.text('MATCHANAUT Comparison Report', 14, 20);
+  doc.text('VERIDIAN Comparative Analysis Report', 14, 20);
   
   doc.setFontSize(10);
   doc.setTextColor(100);
@@ -71,5 +71,5 @@ export function exportToPDF(comparison: ComparisonResult) {
     headStyles: { fillStyle: [37, 99, 235] }
   });
 
-  doc.save(`Matchanaut_Report_${new Date().getTime()}.pdf`);
+  doc.save(`Veridian_Report_${new Date().getTime()}.pdf`);
 }

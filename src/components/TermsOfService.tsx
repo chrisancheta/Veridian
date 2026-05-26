@@ -21,17 +21,17 @@ export default function TermsOfService({ trigger }: TermsOfServiceProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}
-            className="bg-[#0A0D25] border border-[rgba(255,255,255,0.1)] rounded-2xl shadow-2xl w-full max-w-2xl relative my-auto flex flex-col max-h-[90vh]"
+            className="bg-[#FAF9F5] border border-[var(--border2)] rounded-2xl shadow-2xl w-full max-w-2xl relative my-auto flex flex-col max-h-[90vh]"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="p-6 border-b border-[rgba(255,255,255,0.05)] flex items-center justify-between shrink-0">
+            <div className="p-6 border-b border-[var(--border)] flex items-center justify-between shrink-0">
               <div className="flex items-center gap-3">
                 <div className="p-2 bg-[var(--blue2)]/10 rounded-lg text-[var(--blue)]">
                   <FileText className="w-5 h-5" />
                 </div>
-                <h2 className="text-xl font-bold text-[var(--text)]">Terms of Service</h2>
+                <h2 className="text-xl font-bold text-[var(--blue2)]">Terms of Service</h2>
               </div>
-              <button onClick={() => setIsOpen(false)} className="p-2 hover:bg-white/5 rounded-full transition-colors">
+              <button onClick={() => setIsOpen(false)} className="p-2 hover:bg-black/5 rounded-full transition-colors">
                 <X className="w-5 h-5 text-[var(--muted)]" />
               </button>
             </div>
@@ -43,15 +43,15 @@ export default function TermsOfService({ trigger }: TermsOfServiceProps) {
               </div>
 
               <p>
-                These Terms of Service ("Terms") govern your access to and use of the Matchanaut web
-                application (the "Service") operated by Matchanaut ("Matchanaut," "we," "us," or "our").
+                These Terms of Service ("Terms") govern your access to and use of the Veridian web
+                application (the "Service") operated by Veridian ("Veridian," "we," "us," or "our").
                 By accessing or using the Service, you agree to be bound by these Terms.
               </p>
 
               <section className="space-y-3">
                 <h3 className="text-[var(--text)] font-bold text-base">1. Description of Service</h3>
                 <p>
-                  Matchanaut provides an AI-powered tool that compares two proposal or pricing documents and
+                  Veridian provides an AI-powered tool that compares two proposal or pricing documents and
                   generates structured differences, summaries, and reports.
                   The Service is provided as a <span className="text-[var(--blue)] font-bold">stateless, session-based application</span> with no persistent storage of
                   user data.
@@ -95,7 +95,7 @@ export default function TermsOfService({ trigger }: TermsOfServiceProps) {
 
               <section className="space-y-3">
                 <h3 className="text-[var(--text)] font-bold text-base">5. AI-Generated Outputs Disclaimer</h3>
-                <p>Matchanaut uses automated systems, including AI, to generate outputs. You acknowledge that:</p>
+                <p>Veridian uses automated systems, including AI, to generate outputs. You acknowledge that:</p>
                 <ul className="list-disc pl-5 space-y-2">
                   <li>Outputs may contain errors, omissions, or inaccuracies</li>
                   <li>Results are <span className="text-[var(--text)] font-bold">not guaranteed to be complete, accurate, or fit for purpose</span></li>
@@ -109,10 +109,10 @@ export default function TermsOfService({ trigger }: TermsOfServiceProps) {
               </section>
             </div>
 
-            <div className="p-6 bg-black/20 flex justify-end shrink-0">
+            <div className="p-6 bg-[var(--navy)] border-t border-[var(--border)] flex justify-end shrink-0">
               <button
                 onClick={() => setIsOpen(false)}
-                className="px-8 py-2.5 bg-[var(--blue2)] text-white rounded-xl font-bold hover:bg-[var(--blue2)]/90 transition-all shadow-lg shadow-[var(--blue2)]/20"
+                className="px-8 py-2.5 bg-[var(--blue2)] text-white rounded-xl font-bold hover:opacity-90 transition-all shadow-md shadow-[var(--blue2)]/10"
               >
                 Close
               </button>

@@ -35,6 +35,8 @@ export interface DiffItem {
   totalDeltaPercent: number;
   confidence?: number;
   notes?: string;
+  matchReason?: string;
+  needsReview?: boolean;
 }
 
 export interface ComparisonResult {

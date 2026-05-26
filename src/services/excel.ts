@@ -89,7 +89,7 @@ export function exportToExcel(comparison: ComparisonResult) {
 
   // Summary Tab
   const summaryData = [
-    ['MATCHANAUT Comparison Summary'],
+    ['VERIDIAN Comparative Analysis Summary'],
     [''],
     ['Metric', 'Baseline (V1)', 'Comparator (V2)', 'Delta', 'Delta %'],
     [`Total Cost (${currency})`, comparison.summary.totalV1, comparison.summary.totalV2, comparison.summary.delta, `${(comparison.summary.deltaPercent * 100).toFixed(2)}%`],
@@ -109,5 +109,5 @@ export function exportToExcel(comparison: ComparisonResult) {
   const wsDiffs = XLSX.utils.aoa_to_sheet(diffsData);
   XLSX.utils.book_append_sheet(wb, wsDiffs, 'Differential');
 
-  XLSX.writeFile(wb, `Matchanaut_Report_${new Date().getTime()}.xlsx`);
+  XLSX.writeFile(wb, `Veridian_Report_${new Date().getTime()}.xlsx`);
 }

@@ -6,24 +6,42 @@
 }
 
 :root {
-  --bg: #000000;
-  --navy: #0A0D25;
-  --card: rgba(255,255,255,0.05);
-  --border: rgba(255,255,255,0.09);
-  --border2: rgba(255,255,255,0.14);
-  --blue: #4F8EF7;
-  --blue2: #2563EB;
-  --text: #F0F4FF;
-  --muted: rgba(255, 255, 255, 0.85);
-  --muted2: rgba(255, 255, 255, 0.65);
-  --green: #34D399;
-  --red: #F87171;
-  --amber: #FBBF24;
+  --bg: #FAF9F5; /* Premium warm off-white (Matcha Cream background) */
+  --navy: #EFF2EE; /* Soft medium-light shade of sage-grey for structured section frames */
+  --card: #FFFFFF; /* High contrast crisp white cards with soft shadows */
+  --border: rgba(45, 60, 48, 0.08); /* Extremely subtle sage-charcoal dividers */
+  --border2: rgba(45, 60, 48, 0.16);
+  --blue: #4E6E53; /* Medium organic Matcha Green accent */
+  --blue2: #243D29; /* Deep, ceremonial dark forest Matcha - premium primary focus */
+  --text: #19211B; /* Highly legible matcha-tinted dark charcoal text */
+  --muted: rgba(25, 33, 27, 0.72); /* Secondary headers and paragraphs */
+  --muted2: rgba(25, 33, 27, 0.48); /* Inactive tabs, captions and indicators */
+  --green: #376C43; /* Rich matcha-leaf green for success/positive statuses */
+  --red: #A84242; /* Beautiful terracotta earthy red for warning/delete states */
+  --amber: #B87B14; /* Warm ochre gold for highlights */
+  --nav-bg: rgba(250, 249, 245, 0.85);
+}
+
+.dark {
+  --bg: #101511; /* Premium deep dark Matcha background */
+  --navy: #18201a; /* Darker structure panels */
+  --card: #151d17; /* High contrast premium cards */
+  --border: rgba(163, 177, 165, 0.1);
+  --border2: rgba(163, 177, 165, 0.18);
+  --blue: #87af8d; /* Vibrant matcha green accents */
+  --blue2: #a7cca1; /* Radiant primary matcha light green */
+  --text: #e7ece8; /* Highly legible soft cream text */
+  --muted: rgba(231, 236, 232, 0.75);
+  --muted2: rgba(231, 236, 232, 0.52);
+  --green: #4da35d; /* Radiant light matcha success green */
+  --red: #dc6a6a; /* Pastel warm warning red */
+  --amber: #e6a73c; /* Bright ochre gold for highlights */
+  --nav-bg: rgba(16, 21, 17, 0.85);
 }
 
 @layer base {
   body {
-    @apply bg-[var(--bg)] text-[var(--text)] font-sans antialiased m-0 p-0;
+    @apply bg-[var(--bg)] text-[var(--text)] font-sans antialiased m-0 p-0 transition-colors duration-300;
   }
   * {
     box-sizing: border-box;
@@ -32,7 +50,7 @@
 
 /* Navigation */
 nav {
-  @apply flex items-center justify-between px-8 py-[15px] border-b-[0.5px] border-[var(--border)] bg-[rgba(0,0,0,0.92)] sticky top-0 z-20;
+  @apply flex items-center justify-between px-8 py-[15px] border-b border-[var(--border)] bg-[var(--nav-bg)] backdrop-blur-md sticky top-0 z-20 transition-colors duration-300;
 }
 
 .logo {
@@ -40,7 +58,7 @@ nav {
 }
 
 .logo-mark {
-  @apply w-10 h-10 rounded-xl bg-black/40 border border-[rgba(255,255,255,0.15)] flex items-center justify-center overflow-hidden;
+  @apply w-8 h-8 rounded-lg bg-[var(--card)] border border-[var(--border2)] flex items-center justify-center overflow-hidden shadow-sm;
 }
 
 .logo-mark img {
@@ -48,7 +66,7 @@ nav {
 }
 
 .logo-name {
-  @apply text-[22px] font-bold text-[var(--text)] tracking-[0.1em] uppercase leading-none;
+  @apply text-[20px] font-extrabold text-[var(--blue2)] tracking-[0.12em] uppercase leading-none;
 }
 
 .nav-r {
@@ -56,15 +74,15 @@ nav {
 }
 
 .ib { 
-  @apply w-[34px] h-[34px] rounded-lg border-[0.5px] border-[var(--border)] bg-[var(--card)] text-[var(--muted)] flex items-center justify-center cursor-pointer transition-colors hover:bg-[rgba(255,255,255,0.09)];
+  @apply w-[34px] h-[34px] rounded-lg border-[0.5px] border-[var(--border)] bg-[var(--card)] text-[var(--muted)] flex items-center justify-center cursor-pointer transition-all hover:bg-[var(--navy)] hover:border-[var(--blue2)];
 }
 
 .ib svg {
-  @apply w-3.5 h-3.5;
+  @apply w-3.5 h-3.5 text-[var(--blue)];
 }
 
 .try-nav { 
-  @apply px-[18px] py-[8px] rounded-lg text-[13px] font-medium bg-[var(--blue2)] text-white border-none cursor-pointer hover:opacity-85 transition-opacity;
+  @apply px-[18px] py-[8px] rounded-lg text-[13px] font-semibold bg-[var(--blue2)] text-white border-none cursor-pointer hover:opacity-90 hover:shadow-sm transition-all;
 }
 
 /* Hero Section */
@@ -77,15 +95,40 @@ nav {
 }
 
 .hero-badge { 
-  @apply inline-flex items-center gap-[7px] border-[0.5px] border-[rgba(255,255,255,0.2)] bg-[rgba(255,255,255,0.05)] rounded-[100px] px-[14px] py-[5px] text-[11px] text-white tracking-[0.08em] uppercase mb-6;
+  @apply inline-flex items-center gap-[7px] border-[0.5px] border-[rgba(45,60,48,0.15)] bg-[rgba(45,60,48,0.04)] rounded-[100px] px-[14px] py-[5px] text-[11px] text-[var(--blue)] font-bold tracking-[0.08em] uppercase mb-6 shadow-sm;
 }
 
 .bdot { 
-  @apply w-1.5 h-1.5 rounded-full bg-[var(--blue)];
+  @apply relative w-1.5 h-1.5 rounded-full bg-[var(--green)];
+  display: inline-block;
+}
+
+.bdot::after {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  border-radius: 50%;
+  border: 1.5px solid var(--green);
+  opacity: 1;
+  animation: bdot-pulse-ring 1s cubic-bezier(0.2, 0, 0, 1) infinite;
+}
+
+@keyframes bdot-pulse-ring {
+  0% {
+    transform: scale(0.5);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
 }
 
 .hero h1 {
-  @apply text-[52px] font-medium leading-[1.07] text-[var(--text)] tracking-[-0.025em] mb-1.5;
+  @apply text-[52px] font-bold leading-[1.07] text-[var(--blue2)] tracking-[-0.035em] mb-1.5;
 }
 
 .h1b {
@@ -93,7 +136,7 @@ nav {
 }
 
 .hero-cta { 
-  @apply inline-flex items-center gap-[9px] bg-[var(--blue2)] text-white px-[26px] py-[12px] rounded-[10px] text-[14px] font-medium border-none cursor-pointer no-underline mt-7 mb-[52px] hover:opacity-85 transition-opacity;
+  @apply inline-flex items-center gap-[9px] bg-[var(--blue2)] text-white px-[26px] py-[12px] rounded-[10px] text-[14px] font-bold border-none cursor-pointer no-underline mt-7 mb-[52px] hover:scale-[1.02] shadow-sm hover:shadow-md transition-all duration-200;
 }
 
 .hero-cta svg {
@@ -111,21 +154,21 @@ nav {
 
 .orb-left {
   @apply w-[380px] h-[380px] top-5 -left-10;
-  background: radial-gradient(circle at 60% 40%, rgba(155,111,255,0.28) 0%, rgba(79,142,247,0.12) 40%, transparent 70%);
+  background: radial-gradient(circle at 60% 40%, rgba(78,106,83,0.14) 0%, rgba(163,177,155,0.05) 40%, transparent 70%);
 }
 
 .orb-right {
   @apply w-[380px] h-[380px] top-5 -right-10;
-  background: radial-gradient(circle at 40% 40%, rgba(79,142,247,0.28) 0%, rgba(155,111,255,0.10) 40%, transparent 70%);
+  background: radial-gradient(circle at 40% 40%, rgba(163,177,155,0.14) 0%, rgba(78,106,83,0.04) 40%, transparent 70%);
 }
 
 .orb-center-glow {
   @apply w-[260px] h-[260px] top-[50px] left-1/2 -translate-x-1/2;
-  background: radial-gradient(circle, rgba(79,142,247,0.22) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(163,177,155,0.08) 0%, transparent 70%);
 }
 
 .ring { 
-  @apply absolute rounded-full border border-[rgba(155,111,255,0.22)] pointer-events-none;
+  @apply absolute rounded-full border border-[rgba(78,106,83,0.12)] pointer-events-none;
 }
 
 .ring-left {
@@ -141,18 +184,18 @@ nav {
 }
 
 .floating-item {
-  @apply absolute flex items-center gap-2.5 bg-[rgba(13,17,50,0.62)] border-[0.5px] border-[rgba(255,255,255,0.1)] rounded-[10px] p-[6px_10px] z-[4] whitespace-nowrap;
+  @apply absolute flex items-center gap-2.5 bg-white border-[0.5px] border-[rgba(45,60,48,0.12)] rounded-[10px] p-[6px_10px] z-[4] whitespace-nowrap shadow-[0_4px_20px_rgba(45,60,48,0.05)] hover:scale-[1.03] transition-all;
 }
 
 .f-badge {
   @apply w-[16px] h-[16px] rounded-[4px] flex items-center justify-center text-[9px] font-bold uppercase;
 }
 
-.f-badge.a { @apply bg-[rgba(248,113,113,0.15)] text-[var(--red)]; }
-.f-badge.b { @apply bg-[rgba(52,211,153,0.15)] text-[var(--green)]; }
+.f-badge.a { @apply bg-[rgba(168,66,66,0.1)] text-[var(--red)]; }
+.f-badge.b { @apply bg-[rgba(55,108,67,0.1)] text-[var(--green)]; }
 
 .f-label {
-  @apply text-[11px] text-[var(--muted)];
+  @apply text-[11px] font-medium text-[var(--muted)];
 }
 
 .f-price {
@@ -164,9 +207,9 @@ nav {
 
 @keyframes float8 {
   0% { transform: translate(0, 0); }
-  25% { transform: translate(15px, 8px); }
-  50% { transform: translate(0, 16px); }
-  75% { transform: translate(-15px, 8px); }
+  25% { transform: translate(12px, 6px); }
+  50% { transform: translate(0, 12px); }
+  75% { transform: translate(-12px, 6px); }
   100% { transform: translate(0, 0); }
 }
 
@@ -175,39 +218,39 @@ nav {
 }
 
 .center-card { 
-  @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] bg-[rgba(15,20,60,0.82)] border-[0.5px] border-[rgba(79,142,247,0.35)] rounded-[20px] p-[24px_28px] z-10 shadow-[0_0_40px_rgba(0,0,0,0.4)];
+  @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] bg-white border-2 border-[var(--blue2)] rounded-[20px] p-[24px_28px] z-10 shadow-[0_22px_60px_rgba(25,33,27,0.18)] hover:scale-[1.01] transition-all duration-300;
 }
 
 .cc-head { 
-  @apply flex items-center gap-[8px] text-[10px] font-bold text-[var(--blue)] tracking-[0.12em] uppercase mb-4;
+  @apply flex items-center gap-[8px] text-[10px] font-bold text-[var(--blue2)] tracking-[0.12em] uppercase mb-4;
 }
 
 .cc-head svg {
-  @apply w-3 h-3;
+  @apply w-3 h-3 text-[var(--blue)];
 }
 
 .cc-delta { 
-  @apply text-[36px] font-medium text-[var(--text)] mb-[4px] tracking-[-0.02em];
+  @apply text-[36px] font-bold text-[var(--blue2)] mb-[4px] tracking-[-0.03em];
 }
 
 .cc-sub { 
-  @apply text-[12px] text-[var(--muted)] mb-5;
+  @apply text-[12px] text-[var(--muted)] mb-5 font-semibold;
 }
 
 .cc-body { 
-  @apply text-[12px] text-[var(--muted)] leading-[1.7] mb-5;
+  @apply text-[12px] text-[var(--text)] leading-[1.7] mb-5;
 }
 
-.cc-body b { @apply text-[var(--blue)] font-medium; }
-.cc-body .w { @apply text-[var(--amber)] font-medium; }
-.cc-body .r { @apply text-[rgba(200,210,255,0.8)] font-medium; }
+.cc-body b { @apply text-[var(--blue2)] font-semibold; }
+.cc-body .w { @apply text-[var(--amber)] font-semibold; }
+.cc-body .r { @apply text-[var(--blue)] font-semibold; }
 
 .cc-tags {
   @apply flex gap-1.5 flex-wrap;
 }
 
 .cc-tag { 
-  @apply text-[9px] px-2 py-[2px] rounded-[100px] border-[0.5px] border-[rgba(255,255,255,0.1)] text-[var(--muted2)] bg-[rgba(255,255,255,0.04)];
+  @apply text-[9px] px-2 py-[2px] rounded-[100px] border-[0.5px] border-[var(--border)] text-[var(--muted)] bg-[var(--navy)] font-bold;
 }
 
 .cc-variances {
@@ -215,15 +258,15 @@ nav {
 }
 
 .cv { 
-  @apply flex-1 bg-[rgba(255,255,255,0.04)] rounded-lg p-[7px_8px];
+  @apply flex-1 bg-[rgba(45,60,48,0.04)] rounded-lg p-[7px_8px] border border-[rgba(45,60,48,0.06)];
 }
 
 .cv-label { 
-  @apply text-[9px] text-[var(--muted2)] mb-[3px];
+  @apply text-[9px] text-[var(--muted2)] mb-[3px] font-bold uppercase tracking-wider;
 }
 
 .cv-val { 
-  @apply text-[13px] font-medium;
+  @apply text-[13px] font-bold;
 }
 
 .cv-val.hi { @apply text-[var(--red)]; }
@@ -231,7 +274,7 @@ nav {
 
 /* Ticker */
 .ticker-container {
-  @apply absolute bottom-0 left-0 w-full py-6 border-t border-[rgba(255,255,255,0.05)] bg-[rgba(255,255,255,0.01)] overflow-hidden;
+  @apply absolute bottom-0 left-0 w-full py-6 border-t border-[var(--border)] bg-white/50 backdrop-blur-sm overflow-hidden;
 }
 
 .ticker-track {
@@ -240,10 +283,10 @@ nav {
 }
 
 .ticker-item {
-  @apply flex items-center gap-3 text-[11px] font-bold tracking-[0.15em] uppercase;
+  @apply flex items-center gap-3 text-[11px] font-extrabold tracking-[0.15em] uppercase;
 }
 
-.ticker-item.b { @apply text-[var(--blue)]; }
+.ticker-item.b { @apply text-[var(--blue2)]; }
 .ticker-item.g { @apply text-[var(--green)]; }
 
 @keyframes ticker {
@@ -257,11 +300,11 @@ nav {
 }
 
 .s-label { 
-  @apply text-center text-[10px] tracking-[0.1em] uppercase text-white mb-2.5;
+  @apply text-center text-[10px] tracking-[0.12em] uppercase text-[var(--blue)] font-bold mb-2.5;
 }
 
 .s-title { 
-  @apply text-center text-[30px] font-medium text-[var(--text)] tracking-[-0.015em] mb-12;
+  @apply text-center text-[30px] font-bold text-[var(--blue2)] tracking-[-0.02em] mb-12;
 }
 
 .before-after {
@@ -269,29 +312,29 @@ nav {
 }
 
 .ba-col .col-label { 
-  @apply text-[10px] font-medium tracking-[0.1em] uppercase mb-4 pb-[9px] border-b-[0.5px] border-[rgba(255,255,255,0.07)];
+  @apply text-[11px] font-bold tracking-[0.12em] uppercase mb-4 pb-[9px] border-b-[0.5px] border-[var(--border)];
 }
 
 .ba-col.before .col-label { @apply text-[var(--red)]; }
-.ba-col.after .col-label { @apply text-[var(--blue)]; }
+.ba-col.after .col-label { @apply text-[var(--green)]; }
 
 .ba-item { 
   @apply flex items-start gap-[9px] mb-3.5 text-[13px] text-[var(--muted)] leading-[1.55];
 }
 
 .ba-icon { 
-  @apply w-[18px] h-[18px] rounded-full flex-shrink-0 flex items-center justify-center text-[9px] mt-0.5;
+  @apply w-[18px] h-[18px] rounded-full flex-shrink-0 flex items-center justify-center text-[9px] font-bold mt-0.5;
 }
 
-.ba-icon.x { @apply bg-[rgba(248,113,113,0.14)] text-[var(--red)]; }
-.ba-icon.ok { @apply bg-[rgba(79,142,247,0.14)] text-[var(--blue)] text-xs; }
+.ba-icon.x { @apply bg-[rgba(168,66,66,0.1)] text-[var(--red)]; }
+.ba-icon.ok { @apply bg-[rgba(55,108,67,0.1)] text-[var(--green)] text-xs; }
 
 .steps-grid {
   @apply grid grid-cols-3 gap-3 max-w-[780px] mx-auto;
 }
 
 .step-card { 
-  @apply bg-[rgba(255,255,255,0.03)] border-[0.5px] border-[rgba(255,255,255,0.1)] rounded-[18px] p-[32px_24px] flex flex-col items-center text-center;
+  @apply bg-white border border-[var(--border)] shadow-[0_4px_20px_rgba(45,60,48,0.015)] rounded-[18px] p-[32px_24px] flex flex-col items-center text-center hover:border-[var(--blue)] hover:shadow-[0_8px_30px_rgba(45,60,48,0.04)] hover:-translate-y-0.5 transition-all duration-300;
 }
 
 .step-emoji {
@@ -303,11 +346,11 @@ nav {
 }
 
 .step-num { 
-  @apply w-[24px] h-[24px] rounded-[6px] bg-[rgba(79,142,247,0.15)] text-[var(--blue)] text-[11px] font-bold flex items-center justify-center flex-shrink-0;
+  @apply w-[24px] h-[24px] rounded-[6px] bg-[rgba(45,60,48,0.08)] text-[var(--blue)] text-[11px] font-bold flex items-center justify-center flex-shrink-0;
 }
 
 .step-title { 
-  @apply text-[16px] font-bold text-[var(--text)];
+  @apply text-[16px] font-bold text-[var(--blue2)] tracking-tight;
 }
 
 .step-desc { 
@@ -316,15 +359,15 @@ nav {
 
 /* Upload Section */
 .upload-section {
-  @apply py-[72px] px-6 border-t-[0.5px] border-[var(--border)];
+  @apply py-[72px] px-6 bg-[var(--bg)];
 }
 
 .mode-tabs { 
-  @apply flex gap-0 justify-center bg-[rgba(255,255,255,0.06)] border-[0.5px] border-[rgba(255,255,255,0.14)] rounded-[10px] p-1 max-w-[360px] mx-auto mb-9;
+  @apply flex gap-0 justify-center bg-white border-[0.5px] border-[var(--border)] rounded-[12px] p-1.5 max-w-[360px] mx-auto mb-9 shadow-sm;
 }
 
 .mtab { 
-  @apply flex-1 flex items-center justify-center gap-[7px] p-[10px_16px] rounded-[7px] text-[13px] font-medium cursor-pointer border-none bg-transparent text-[rgba(200,210,255,0.5)] transition-all duration-150;
+  @apply flex-1 flex items-center justify-center gap-[7px] p-[10px_16px] rounded-[8px] text-[13px] font-bold cursor-pointer border-none bg-transparent text-[var(--muted2)] transition-all duration-150;
 }
 
 .mtab svg {
@@ -332,11 +375,11 @@ nav {
 }
 
 .mtab.active { 
-  @apply bg-[var(--blue2)] text-white;
+  @apply bg-[var(--blue2)] text-white shadow-sm;
 }
 
 .mtab:not(.active):hover {
-  @apply text-[var(--text)] bg-[rgba(255,255,255,0.06)];
+  @apply text-[var(--blue2)] bg-[rgba(45,60,48,0.04)];
 }
 
 .upload-grid {
@@ -344,27 +387,27 @@ nav {
 }
 
 .ucard { 
-  @apply bg-[var(--card)] border-[1.5px] border-dashed border-[rgba(255,255,255,0.1)] rounded-[14px] p-[34px_20px] text-center cursor-pointer transition-colors duration-150 hover:border-[var(--blue)];
+  @apply bg-white border-[1.5px] border-dashed border-[var(--border2)] rounded-[14px] p-[34px_20px] text-center cursor-pointer transition-all duration-150 hover:border-[var(--blue2)] hover:bg-[rgba(45,60,48,0.01)] shadow-sm;
 }
 
 .u-icon { 
-  @apply w-[42px] h-[42px] rounded-[11px] bg-[rgba(255,255,255,0.05)] border-[0.5px] border-[var(--border)] flex items-center justify-center mx-auto mb-3;
+  @apply w-[42px] h-[42px] rounded-[11px] bg-[rgba(45,60,48,0.04)] border border-[var(--border)] flex items-center justify-center mx-auto mb-3 transition-colors group-hover:bg-[rgba(45,60,48,0.08)];
 }
 
 .u-icon svg {
-  @apply w-[18px] h-[18px] text-[var(--muted)];
+  @apply w-[18px] h-[18px] text-[var(--blue)];
 }
 
 .u-ver { 
-  @apply text-[10px] font-medium text-[var(--muted)] tracking-[0.1em] uppercase mb-2.5;
+  @apply text-[10px] font-bold text-[var(--blue)] tracking-[0.1em] uppercase mb-2.5;
 }
 
 .u-pick { 
-  @apply inline-block text-[11px] font-medium text-[var(--blue)] border-[0.5px] border-[rgba(79,142,247,0.3)] bg-[rgba(79,142,247,0.1)] rounded-[7px] px-3 py-[5px];
+  @apply inline-block text-[11px] font-bold text-[var(--blue2)] border-[0.5px] border-[rgba(45,60,48,0.25)] bg-[rgba(45,60,48,0.04)] rounded-[7px] px-3 py-[5px] transition-colors group-hover:bg-[rgba(45,60,48,0.08)];
 }
 
 .u-fname {
-  @apply mt-2 text-[11px] text-[var(--muted2)];
+  @apply mt-2 text-[11px] text-[var(--muted2)] font-mono;
 }
 
 .launch-wrap {
@@ -372,7 +415,7 @@ nav {
 }
 
 .launch-btn { 
-  @apply inline-flex items-center gap-[10px] px-10 py-3.5 rounded-[10px] text-[15px] font-medium bg-[rgba(255,255,255,0.07)] text-[rgba(200,210,255,0.35)] border-[0.5px] border-[rgba(255,255,255,0.1)] cursor-not-allowed transition-all duration-200;
+  @apply inline-flex items-center gap-[10px] px-10 py-3.5 rounded-[10px] text-[15px] font-bold bg-[rgba(45,60,48,0.04)] text-[var(--muted2)] border-[0.5px] border-[var(--border)] cursor-not-allowed transition-all duration-200;
 }
 
 .launch-btn svg {
@@ -380,14 +423,58 @@ nav {
 }
 
 .launch-btn.ready { 
-  @apply bg-[var(--blue2)] text-white border-[var(--blue2)] cursor-pointer hover:opacity-88;
+  @apply bg-[var(--blue2)] text-white border-[var(--blue2)] cursor-pointer hover:opacity-90 hover:-translate-y-0.5 hover:shadow-[0_4px_20px_rgba(45,60,48,0.12)] shadow-[0_4px_10px_rgba(45,60,48,0.05)];
 }
 
 /* Footer */
 footer {
-  @apply px-8 py-5 border-t-[0.5px] border-[var(--border)] flex items-center justify-between;
+  @apply px-8 py-5 border-t border-[var(--border)] flex items-center justify-between bg-[var(--bg)] transition-colors duration-300;
 }
 
 .fc { 
-  @apply text-[10px] text-white tracking-[0.05em] uppercase;
+  @apply text-[10px] text-[var(--muted)] font-semibold tracking-[0.05em] uppercase;
+}
+
+/* Elegant Theme overrides for elements utilizing hardcoded styles */
+.dark .bg-white {
+  background-color: var(--card) !important;
+}
+.dark .bg-white\/50 {
+  background-color: rgba(21, 29, 23, 0.5) !important;
+}
+.dark .bg-white\/45 {
+  background-color: rgba(21, 29, 23, 0.45) !important;
+}
+.dark .bg-white\/30 {
+  background-color: rgba(21, 29, 23, 0.3) !important;
+}
+.dark .bg-white\/5 {
+  background-color: rgba(231, 236, 232, 0.05) !important;
+}
+.dark .border-white {
+  border-color: var(--border) !important;
+}
+.dark .text-gray-900, .dark .text-slate-900, .dark .text-neutral-900 {
+  color: var(--text) !important;
+}
+.dark .text-gray-800, .dark .text-slate-800, .dark .text-neutral-800 {
+  color: var(--text) !important;
+}
+.dark .text-gray-700, .dark .text-slate-700, .dark .text-neutral-700 {
+  color: var(--muted) !important;
+}
+.dark .text-gray-600, .dark .text-slate-600, .dark .text-neutral-600 {
+  color: var(--muted) !important;
+}
+.dark .text-gray-500, .dark .text-slate-500, .dark .text-neutral-500 {
+  color: var(--muted2) !important;
+}
+.dark .text-gray-400, .dark .text-slate-400, .dark .text-neutral-400 {
+  color: var(--muted2) !important;
+}
+.dark .border-gray-200, .dark .border-slate-200, .dark .border-neutral-200, .dark .border-gray-100, .dark .border-slate-100 {
+  border-color: var(--border) !important;
+}
+.dark .divide-gray-200 > :not([hidden]) ~ :not([hidden]), .dark .divide-slate-200 > :not([hidden]) ~ :not([hidden]) {
+  border-color: var(--border) !important;
 }

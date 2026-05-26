@@ -21,17 +21,17 @@ export default function PrivacyPolicy({ trigger }: PrivacyPolicyProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}
-            className="bg-[#0A0D25] border border-[rgba(255,255,255,0.1)] rounded-2xl shadow-2xl w-full max-w-2xl relative my-auto flex flex-col max-h-[90vh]"
+            className="bg-[#FAF9F5] border border-[var(--border2)] rounded-2xl shadow-2xl w-full max-w-2xl relative my-auto flex flex-col max-h-[90vh]"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="p-6 border-b border-[rgba(255,255,255,0.05)] flex items-center justify-between shrink-0">
+            <div className="p-6 border-b border-[var(--border)] flex items-center justify-between shrink-0">
               <div className="flex items-center gap-3">
                 <div className="p-2 bg-[var(--blue2)]/10 rounded-lg text-[var(--blue)]">
                   <ShieldCheck className="w-5 h-5" />
                 </div>
-                <h2 className="text-xl font-bold text-[var(--text)]">Privacy Policy</h2>
+                <h2 className="text-xl font-bold text-[var(--blue2)]">Privacy Policy</h2>
               </div>
-              <button onClick={() => setIsOpen(false)} className="p-2 hover:bg-white/5 rounded-full transition-colors">
+              <button onClick={() => setIsOpen(false)} className="p-2 hover:bg-black/5 rounded-full transition-colors">
                 <X className="w-5 h-5 text-[var(--muted)]" />
               </button>
             </div>
@@ -43,15 +43,15 @@ export default function PrivacyPolicy({ trigger }: PrivacyPolicyProps) {
               </div>
 
               <p>
-                Matchanaut ("Matchanaut," "we," "us," or "our") provides an AI-powered application for
+                Veridian ("Veridian," "we," "us," or "our") provides an AI-powered application for
                 comparing proposal and pricing files. This Privacy Policy describes how we handle information
-                in connection with your use of the Matchanaut web application (the "Service").
+                in connection with your use of the Veridian web application (the "Service").
               </p>
 
               <section className="space-y-3">
                 <h3 className="text-[var(--text)] font-bold text-base">1. Scope of Policy</h3>
                 <p>
-                  This Privacy Policy applies to all users of the Service. By using Matchanaut, you acknowledge
+                  This Privacy Policy applies to all users of the Service. By using Veridian, you acknowledge
                   and agree to the practices described herein.
                 </p>
               </section>
@@ -86,7 +86,7 @@ export default function PrivacyPolicy({ trigger }: PrivacyPolicyProps) {
 
               <section className="space-y-3">
                 <h3 className="text-[var(--text)] font-bold text-base">3. No Data Retention</h3>
-                <p>Matchanaut is designed with a <span className="text-[var(--blue)] font-bold">zero-retention architecture</span>:</p>
+                <p>Veridian is designed with a <span className="text-[var(--blue)] font-bold">zero-retention architecture</span>:</p>
                 <ul className="list-disc pl-5 space-y-2">
                   <li>No databases store user content</li>
                   <li>No files are written to disk for persistent storage</li>
@@ -118,10 +118,10 @@ export default function PrivacyPolicy({ trigger }: PrivacyPolicyProps) {
               </section>
             </div>
 
-            <div className="p-6 bg-black/20 flex justify-end shrink-0">
+            <div className="p-6 bg-[var(--navy)] border-t border-[var(--border)] flex justify-end shrink-0">
               <button
                 onClick={() => setIsOpen(false)}
-                className="px-8 py-2.5 bg-[var(--blue2)] text-white rounded-xl font-bold hover:bg-[var(--blue2)]/90 transition-all shadow-lg shadow-[var(--blue2)]/20"
+                className="px-8 py-2.5 bg-[var(--blue2)] text-white rounded-xl font-bold hover:opacity-90 transition-all shadow-md shadow-[var(--blue2)]/10"
               >
                 Close
               </button>

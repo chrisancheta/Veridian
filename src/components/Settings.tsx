@@ -31,22 +31,22 @@ export default function Settings({ trigger }: SettingsProps) {
   const modalContent = (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm overflow-y-auto">
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm overflow-y-auto">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.9 }}
-            className="bg-[#0D1132] border border-[rgba(255,255,255,0.1)] rounded-2xl shadow-2xl w-full max-w-md relative my-auto flex flex-col max-h-[90vh]"
+            className="bg-[#FAF9F5] border border-[var(--border2)] rounded-2xl shadow-2xl w-full max-w-md relative my-auto flex flex-col max-h-[90vh]"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="p-6 border-b border-[rgba(255,255,255,0.05)] flex items-center justify-between shrink-0">
+            <div className="p-6 border-b border-[var(--border)] flex items-center justify-between shrink-0">
               <div className="flex items-center gap-2">
-                <div className="p-2 bg-[var(--blue2)]/10 rounded-lg">
+                <div className="p-2 bg-[var(--blue)]/10 rounded-lg">
                   <Key className="w-5 h-5 text-[var(--blue)]" />
                 </div>
-                <h2 className="text-xl font-bold text-[var(--text)]">API Configuration</h2>
+                <h2 className="text-xl font-bold text-[var(--blue2)]">API Configuration</h2>
               </div>
-              <button onClick={() => setIsOpen(false)} className="p-2 hover:bg-white/5 rounded-full transition-colors">
+              <button onClick={() => setIsOpen(false)} className="p-2 hover:bg-black/5 rounded-full transition-colors">
                 <X className="w-5 h-5 text-[var(--muted)]" />
               </button>
             </div>
@@ -60,7 +60,7 @@ export default function Settings({ trigger }: SettingsProps) {
                     value={apiKey}
                     onChange={(e) => setApiKey(e.target.value)}
                     placeholder="Paste your key here..."
-                    className="w-full px-4 py-3 bg-white/5 border border-[rgba(255,255,255,0.1)] rounded-xl focus:ring-2 focus:ring-[var(--blue2)] focus:border-transparent transition-all outline-none font-mono text-sm pr-12 text-[var(--text)]"
+                    className="w-full px-4 py-3 bg-white border border-[var(--border2)] rounded-xl focus:ring-2 focus:ring-[var(--blue)] focus:border-transparent transition-all outline-none font-mono text-sm pr-12 text-[var(--text)] shadow-sm"
                     autoFocus
                   />
                   <button
@@ -84,17 +84,17 @@ export default function Settings({ trigger }: SettingsProps) {
                 </p>
               </div>
 
-              <div className="bg-[var(--blue2)]/5 border border-[var(--blue2)]/20 p-4 rounded-xl">
-                <p className="text-xs text-[rgba(200,210,255,0.8)] leading-relaxed font-medium">
+              <div className="bg-[var(--navy)] border border-[var(--border)] p-4 rounded-xl">
+                <p className="text-xs text-[var(--muted)] leading-relaxed font-semibold">
                   <strong>Security Note:</strong> Your API key is never sent to our servers. It is used directly from your browser to communicate with Google's AI models.
                 </p>
               </div>
             </div>
 
-            <div className="p-6 bg-black/20 flex justify-end gap-3 shrink-0">
+            <div className="p-6 bg-[var(--navy)]/35 border-t border-[var(--border)] flex justify-end gap-3 shrink-0">
               <button
                 onClick={() => setIsOpen(false)}
-                className="px-6 py-2 text-[var(--muted)] font-bold hover:text-[var(--text)] transition-colors"
+                className="px-6 py-2 text-[var(--muted)] font-bold hover:text-[var(--blue2)] transition-colors"
               >
                 Cancel
               </button>
@@ -106,8 +106,8 @@ export default function Settings({ trigger }: SettingsProps) {
                   isSaved 
                     ? "bg-[var(--green)] text-white" 
                     : apiKey 
-                      ? "bg-[var(--blue2)] text-white hover:bg-[var(--blue2)]/90 shadow-lg shadow-[var(--blue2)]/20" 
-                      : "bg-white/5 text-[rgba(200,210,255,0.3)] cursor-not-allowed"
+                      ? "bg-[var(--blue2)] text-white hover:opacity-90 shadow-[var(--blue2)]/10" 
+                      : "bg-black/5 text-[var(--muted2)] cursor-not-allowed"
                 )}
               >
                 {isSaved ? (
@@ -133,12 +133,12 @@ export default function Settings({ trigger }: SettingsProps) {
       ) : (
         <button
           onClick={() => setIsOpen(true)}
-          className="p-2 hover:bg-white/5 rounded-full transition-colors relative group"
+          className="p-2 hover:bg-black/5 rounded-full transition-colors relative group"
           title="API Settings"
         >
-          <Key className="w-5 h-5 text-[rgba(200,210,255,0.55)] group-hover:text-[#4F8EF7] transition-colors" />
+          <Key className="w-5 h-5 text-[var(--blue)] group-hover:text-[var(--blue2)] transition-colors" />
           {!apiKey && (
-            <span className="absolute top-1 right-1 w-2.5 h-2.5 bg-[#F87171] rounded-full border-2 border-[#06081A] animate-pulse" />
+            <span className="absolute top-1 right-1 w-2.5 h-2.5 bg-[var(--red)] rounded-full border-2 border-[var(--bg)] animate-pulse" />
           )}
         </button>
       )}
