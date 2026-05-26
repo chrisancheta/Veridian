@@ -311,44 +311,8 @@ export default function App() {
                   />
                 </div>
 
-                {/* Checklist & Readiness indicator */}
-                <div className="max-w-[680px] mx-auto mt-6 mb-8 p-4 rounded-2xl border border-dashed border-[var(--border2)] bg-white/50 dark:bg-[#151D17]/50 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
-                  <div className="flex items-center gap-6">
-                    <div className="flex items-center gap-2">
-                      <div className={cn(
-                        "w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold transition-all",
-                        file1 ? "bg-[var(--green)] text-white scale-110" : "bg-slate-100 dark:bg-slate-800 text-slate-400"
-                      )}>
-                        {file1 ? "✓" : "1"}
-                      </div>
-                      <span className={cn("font-bold text-[11px]", file1 ? "text-[var(--blue2)]" : "text-slate-400")}>
-                        {comparisonType === 'version' ? "Version A" : "Proposal A"}
-                      </span>
-                    </div>
-                    
-                    <div className="flex items-center gap-2">
-                      <div className={cn(
-                        "w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold transition-all",
-                        file2 ? "bg-[var(--green)] text-white scale-110" : "bg-slate-100 dark:bg-slate-800 text-slate-400"
-                      )}>
-                        {file2 ? "✓" : "2"}
-                      </div>
-                      <span className={cn("font-bold text-[11px]", file2 ? "text-[var(--blue2)]" : "text-slate-400")}>
-                        {comparisonType === 'version' ? "Version B" : "Proposal B"}
-                      </span>
-                    </div>
-                  </div>
-                  
-                  <div className="text-[11px] font-bold text-slate-400 flex items-center gap-2 shrink-0">
-                    <span className={cn(
-                      "w-2 h-2 rounded-full",
-                      (file1 && file2) ? "bg-[var(--green)] animate-pulse" : "bg-amber-400"
-                    )} />
-                    {(file1 && file2) ? "Ready for alignment matching" : "Awaiting files..."}
-                  </div>
-                </div>
-
-                <div className="launch-wrap">
+                {/* Launch comparison wrapper */}
+                <div className="launch-wrap mt-8">
                   {isProcessing ? (
                     <button 
                       disabled={true}
@@ -357,18 +321,16 @@ export default function App() {
                       <Loader2 className="w-4 h-4 animate-spin text-[var(--blue)]" />
                       {loadingMessages[loadingMessageIndex]}
                     </button>
-                  ) : (!file1 || !file2) ? (
-                    <button 
-                      disabled={true}
-                      className="inline-flex items-center gap-2 px-10 py-3.5 rounded-[12px] text-[15px] font-extrabold bg-slate-50 dark:bg-[#151D17]/40 text-slate-400 border border-[var(--border2)] cursor-not-allowed opacity-80"
-                    >
-                      <div className="w-2 h-2 rounded-full bg-amber-400 animate-pulse mr-1" />
-                      Upload files above to launch comparison
-                    </button>
                   ) : (
                     <button 
                       onClick={handleLaunch}
-                      className="launch-btn ready inline-flex items-center gap-2 px-10 py-3.5 rounded-[12px] text-[15px] font-extrabold bg-[var(--blue2)] text-white border border-[var(--blue2)] cursor-pointer hover:opacity-95 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200"
+                      disabled={!file1 || !file2}
+                      className={cn(
+                        "launch-btn inline-flex items-center gap-2 px-10 py-3.5 rounded-[12px] text-[15px] font-extrabold transition-all duration-200 border",
+                        (!file1 || !file2)
+                          ? "bg-slate-50 dark:bg-[#151D17]/40 text-slate-400 border-[var(--border2)] cursor-not-allowed opacity-60"
+                          : "ready bg-[var(--blue2)] text-white border-[var(--blue2)] cursor-pointer hover:opacity-95 hover:-translate-y-0.5 hover:shadow-lg"
+                      )}
                     >
                       <span className="text-[15px] leading-none">⚡</span>
                       Execute Veridian SOW Analysis
