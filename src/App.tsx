@@ -191,7 +191,7 @@ export default function App() {
         </a>
 
         {/* Dynamic Center Navigation Links */}
-        <div className="hidden lg:flex items-center gap-6 ml-auto mr-4">
+        <div className="hidden lg:flex items-center gap-4 ml-auto mr-3">
           <button 
             onClick={() => navigateSection('why-us')}
             className="text-xs font-bold text-[var(--muted2)] hover:text-[var(--blue2)] tracking-wider uppercase transition-colors cursor-pointer outline-none border-none bg-transparent"
@@ -222,7 +222,7 @@ export default function App() {
           
           <button 
             onClick={() => navigateSection('demo')}
-            className="px-4 py-2 bg-[var(--blue2)] text-white text-[11px] font-black tracking-wider uppercase rounded-lg hover:opacity-95 transition-all cursor-pointer shadow-sm ml-2"
+            className="px-3.5 py-1.5 bg-[var(--blue2)] text-white text-[10px] font-black tracking-wider uppercase rounded-lg hover:opacity-95 transition-all cursor-pointer shadow-1xs ml-1"
           >
             Analyze a Sample Proposal
           </button>
@@ -265,7 +265,7 @@ export default function App() {
                 {/* Premium Header Block */}
                 <div className="max-w-2xl mx-auto text-center mb-10">
                   <div className="inline-flex items-center gap-[7px] border border-[rgba(45,60,48,0.14)] bg-[rgba(45,60,48,0.02)] rounded-full px-3 py-1 text-[10px] text-[var(--blue)] font-bold tracking-[0.1em] uppercase mb-4 shadow-sm">
-                    <ShieldCheck className="w-3.5 h-3.5 text-[var(--green)]" /> Zero-Retention Sandbox
+                    <ShieldCheck className="w-3.5 h-3.5 text-[var(--green)]" /> Zero-Retention Security
                   </div>
                   <h2 className="text-3xl font-extrabold text-[var(--blue2)] tracking-tight mb-3">
                     Analyze SOW &amp; Proposal Variances
@@ -343,7 +343,7 @@ export default function App() {
                   {/* Test drive section */}
                   <div className="mt-6 flex flex-col items-center gap-2">
                     <div className="text-[11px] font-bold text-slate-400">
-                      Don&apos;t have custom files handy?
+                      Don&apos;t have custom files?
                     </div>
                     <button
                       onClick={handleTrySample}
@@ -351,7 +351,7 @@ export default function App() {
                       className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[rgba(78,110,83,0.04)] border border-[rgba(78,110,83,0.12)] text-[11px] font-extrabold text-[var(--blue)] hover:text-[var(--blue2)] hover:bg-[rgba(78,110,83,0.08)] transition-all cursor-pointer shadow-xs"
                     >
                       <Sparkles className="w-3.5 h-3.5 text-[var(--green)] animate-pulse" />
-                      Test Veridian with sample version data
+                      {comparisonType === 'version' ? "Try with sample version data" : "Try with sample proposal data"}
                     </button>
                   </div>
                   

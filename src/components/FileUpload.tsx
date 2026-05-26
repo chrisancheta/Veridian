@@ -74,7 +74,7 @@ export default function FileUpload({ label, file, onFileSelect, description }: F
           </span>
           <div className="flex items-center gap-1 text-[9px] font-bold text-slate-400">
             <ShieldCheck className="w-3 h-3 text-[var(--green)]" />
-            Local Sandbox
+            Local Secure
           </div>
         </div>
 
@@ -132,7 +132,7 @@ export default function FileUpload({ label, file, onFileSelect, description }: F
           </button>
         ) : (
           <span className="font-extrabold text-[var(--blue)] bg-[rgba(78,110,83,0.06)] px-2 py-0.5 rounded uppercase tracking-wider">
-            Sandboxed
+            Secure Local
           </span>
         )}
       </div>

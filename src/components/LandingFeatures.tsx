@@ -56,7 +56,7 @@ export function SeeWhatChanged() {
           </h1>
 
           <p className="text-[15px] sm:text-[16px] text-[var(--muted)] leading-relaxed font-medium max-w-xl">
-            Align mismatched line items, detect scope creep, and surface vendor pricing changes in minutes—enabling biotech ops teams to negotiate from evidence.
+            Align mismatched line items, detect scope creep, and surface vendor pricing changes in minutes—enabling teams to negotiate from evidence.
           </p>
 
           <div className="flex flex-wrap items-center gap-4 pt-2">

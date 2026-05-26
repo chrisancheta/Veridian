@@ -1,8 +1,8 @@
-# VERIDIAN 🚀
+# MATCHANAUT 🚀
 
 **AI-Powered Proposal Comparison Engine**
 
-VERIDIAN is a professional procurement and sourcing tool designed to normalize and compare messy vendor proposals. Using the Google Gemini AI "Neural Engine," it identifies variances in quantity, price, and scope across multiple versions or competing vendor bids, providing strategic insights and actionable recommendations.
+MATCHANAUT is a professional procurement and sourcing tool designed to normalize and compare messy vendor proposals. Using the Google Gemini AI "Neural Engine," it identifies variances in quantity, price, and scope across multiple versions or competing vendor bids, providing strategic insights and actionable recommendations.
 
 ## 🌟 Key Features
 
